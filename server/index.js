@@ -2,12 +2,14 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
-
 //importing routes from ./routes/:
 import studentRoutes from './routes/student.js';
+import dotenv from 'dotenv/config'
+
+console.log(process.env.CONNECTION_STRING);
 
 const app = express(); //made variable app object of type express object package
-const CONNECTION_URL = 'mongodb+srv://mernstacktest:t8swJhCKI575aIGh@cluster0.bagne.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const CONNECTION_URL = process.env.CONNECTION_STRING;
 const PORT = process.env.PORT || 5000;
 
 // app.use(function(req, res, next) {
